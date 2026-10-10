@@ -1,5 +1,5 @@
 # Instacart Agent-Readiness — Deck Content & Layout Spec (v2)
-*Reading deck: 12 slides (no appendix), 16:9 (1920 × 1080). Every word in quotes or inside a block is final slide copy. Text in *(italics)* is a layout instruction, not slide copy.*
+*Reading deck: 11 slides (no appendix), 16:9 (1920 × 1080). Every word in quotes or inside a block is final slide copy. Text in *(italics)* is a layout instruction, not slide copy.*
 
 **What changed from v1:** your per-question structure is built in (Q1–Q6 + NSM). Q4 and Q5 are two slides each; Q3 is one dense slide. Every question slide opens with the brief's own question. Q2 uses a pre-mortem. Q3 gains a "when would checkout win?" what-if exhibit. Q4 uses a fishbone plus 5 Whys. Q5 has a sourced guesstimate and a precision/recall matrix. Q6 adds a situation analysis. The roadmap slide is gone; its "what we're not doing" moved to the exec summary.
 
@@ -10,7 +10,7 @@
 ### A1. Master prompt
 > Design a 16:9 presentation slide at 1920×1080 for a consulting-style *reading* deck. It will be exported to PDF and read without a presenter, so it should be dense but scannable. Use Inter only. Margins 64 px left/right, 48 px top/bottom; a 12-column grid with 24 px gutters.
 > **Fixed chrome on every content slide, top to bottom:**
-> (1) **Nav bar**, 40 px tall, full width, nine text tabs: Summary · Context · Q1 Market · Q2 Demo · Q3 Build · Q4 Contract · Q5 Guardrails · Q6 Risk · Metrics. The active tab is a filled pill in #003D29 with white text; inactive tabs are #6B7280 at 13 px. Running header "MAKING INSTACART AGENT-READY" at top right, 11 px caps #6B7280. A 2 px #003D29 rule sits under the bar.
+> (1) **Nav bar**, 40 px tall, full width, eight text tabs: Summary · Q1 Market · Q2 Demo · Q3 Build · Q4 Contract · Q5 Guardrails · Q6 Risk · Metrics. The active tab is a filled pill in #003D29 with white text; inactive tabs are #6B7280 at 13 px. Running header "MAKING INSTACART AGENT-READY" at top right, 11 px caps #6B7280. A 2 px #003D29 rule sits under the bar.
 > (2) **Question strip** (question slides only): a 1-line-high #F3F4F6 bar with a bold "THE QUESTION ·" label followed by the question text verbatim, 13 px italic #374151, max 2 lines.
 > (3) **Action title**: 32 px, bold, #1A1A1A, max 2 lines.
 > (4) **Takeaway line**: 17 px, medium, #0A8A0A, max 2 lines.
@@ -22,7 +22,7 @@
 ### A2. Per-slide prompt template
 > Using the design system above, build slide [N]. Active nav tab: [TAB]. Pillar chips: [CHIPS]. Layout: [paste the LAYOUT sketch]. Content: [paste the blocks exactly]. Keep all copy verbatim; don't add or rewrite text. Render tables as real tables, not images. The double quotation marks around copy in this spec only mark where the copy starts and ends: don't render them, except inside [QUOTE] blocks and where a phrase is quoted within a sentence.
 
-Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to tighten their fonts by hand.
+Build one slide per prompt. The densest slides are 2, 4, 5, 6, 9 and 10; expect to tighten their fonts by hand.
 
 ### A3. Block legend
 `[Q]` question strip · `[TITLE]` action title · `[TAKEAWAY]` · `[TABLE]` · `[CHART]` · `[DIAGRAM]` · `[CARD]` · `[CODE]` · `[QUOTE]` · `[CALLOUT]` · `[FOOTER]`
@@ -32,17 +32,16 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 ## Part B — Storyline check (titles only)
 
 1. Making Instacart Agent-Ready: The Delegation Contract
-2. Agents earn autonomy only as fast as Instacart makes intent legible, bounded, reversible and accountable
-3. The agent isn't ours: Instacart controls only the contract and the guardrails, so we design for three users
-4. **Q1** — Groceries score 91.5% on agentic readiness and lead on every criterion, so they're the right place to start under any weighting
-5. **Q2** — Push back on the scope, not the date: the board gets its demo in six weeks, built on the real foundation
-6. **Q3** — Pick the Substitution-Preference API: in grocery, substitution is the leak, and checkout already has a working path
-7. **Q4** — Neither agent is wrong: the root cause is a design error, a contract built for humans who see context and consumed by agents who don't
-8. **Q4** — Make the contract strict, make the server read back what it understood, and certify agents before they can write
-9. **Q5** — Start at 5 autonomous orders per user per month — a weekly shop plus one top-up — because a missed bad order costs far more than an extra question
-10. **Q5** — Above any limit the agent asks, it isn't blocked: six layers of guardrails that loosen only when the data earns it
-11. **Q6** — Yes, take it seriously: they stalled on the problems we've built for first, and here's exactly where we're still exposed
-12. One North Star, Trusted Agent Orders, driven by four input dimensions and kept honest by counter-metrics with hard thresholds
+2. **Executive Summary** — Being agent-ready isn't about letting agents click buttons faster; it's about making a user's intent legible, bounded, reversible and accountable, so a third-party agent can act on it without a human reviewing every step
+3. **Q1** — Groceries score 91.5% on agentic readiness and lead on every criterion, so they're the right place to start under any weighting
+4. **Q2** — Push back on the scope, not the date: the board gets its demo in six weeks, built on the real foundation
+5. **Q3** — Pick the Substitution-Preference API: in grocery, substitution is the leak, and checkout already has a working path
+6. **Q4** — Neither agent is wrong: the root cause is a design error, a contract built for humans who see context and consumed by agents who don't
+7. **Q4** — Make the contract strict, make the server read back what it understood, and certify agents before they can write
+8. **Q5** — Start at 5 autonomous orders per user per month — a weekly shop plus one top-up — because a missed bad order costs far more than an extra question
+9. **Q5** — Above any limit the agent asks, it isn't blocked: six layers of guardrails that loosen only when the data earns it
+10. **Q6** — Yes, take it seriously: they stalled on the problems we've built for first, and here's exactly where we're still exposed
+11. One North Star, Trusted Agent Orders, driven by four input dimensions and kept honest by counter-metrics with hard thresholds
 
 ---
 
@@ -81,120 +80,85 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 ---
 
 ### SLIDE 2 — Executive Summary
-*Nav: Summary · Chips: all four · No question strip.*
+*Nav: Summary · Chips: all four · No question strip. Replaces the old slides 2 (summary) and 3 (context). Icons: use Lucide line icons, 20–24 px, stroke 1.75, in the section's colour.*
 
 **LAYOUT**
 ```
 ┌ nav ───────────────────────────────────────────────────────────┐
-│ [TITLE]                                               [chips] │
-│ [TAKEAWAY]                                                    │
-│ ┌LEGIBLE─┐ ┌BOUNDED─┐ ┌REVERSIBLE┐ ┌ACCOUNTABLE┐   4 cards     │
-│ ┌ TABLE: Q | Question | Our answer | Slide | Pillar ────────┐ │
-│ │ 6 rows                                                    │ │
-│ └───────────────────────────────────────────────────────────┘ │
-│ ┌ WHAT WE'RE DELIBERATELY NOT DOING (one slim strip) ───────┐ │
+│ EXECUTIVE SUMMARY (eyebrow)                           [chips] │
+│ [TITLE — 3 lines, pillar words coloured]                       │
+│ ┌ THE PARADIGM SHIFT (42%) ─────┐ ┌ CONTROL BOUNDARY (58%) ─────┐│
+│ │ text + Before → After strip   │ │ User → Agent ┊ Instacart    ││
+│ └───────────────────────────────┘ └─────────────────────────────┘│
+│ ┌LEGIBLE─┐ ┌BOUNDED─┐ ┌REVERSIBLE┐ ┌ACCOUNTABLE┐  4 icon cards  │
+│ ┌USER───┐ ┌AGENT──┐ ┌BUSINESS┐ (66%)  ┌ ASSUMPTIONS (34%) ───┐ │
+│ └───────┘ └───────┘ └────────┘        └──────────────────────┘ │
 │ [CALLOUT]                                                      │
+│ [FOOTER]                                                       │
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**[TITLE]** "Agents earn autonomy only as fast as Instacart makes intent legible, bounded, reversible and accountable"
+**[EYEBROW]** *(12 px caps, #6B7280, above the title)* "EXECUTIVE SUMMARY"
 
-**[TAKEAWAY]** "Instacart doesn't own the agent. It owns the contract the agent reads and the guardrails the agent can't bypass, so that's where every decision below is made."
+**[TITLE]** *(28 px bold, max 3 lines. Colour the four pillar words in their pillar colours: legible #2563EB, bounded #0A8A0A, reversible #D97706, accountable #7C3AED)*
+"Being agent-ready isn't about letting agents click buttons faster. It's about making a user's intent legible, bounded, reversible and accountable, so a third-party agent can act on that intent without a human reviewing every step."
 
-**[CARDS — The Delegation Contract]** *(4 equal cards, top border in the pillar colour)*
+**[PANEL — The Paradigm Shift]** *(panel with a clock icon next to the label)*
+- Label: "THE PARADIGM SHIFT"
+- Body (14 px): "Within the next 12 months, agents will act on behalf of users at scale. But the agent is a **third-party, OS-level assistant** (e.g. shipped with the user's phone), so Instacart doesn't control its logic. **We control only the API interface and server-side guardrails.**"
+- Before → After strip *(two small tiles joined by an arrow)*:
+  - Tile 1, icon `mouse-pointer-click`: "**Before:** a human taps through every step in our app"
+  - Tile 2, icon `bot`: "**After:** an agent we don't own calls our API, often unsupervised"
 
-| Pillar | Card body | Card footer: Instacart's lever |
-|---|---|---|
-| **LEGIBLE** | "Every field, unit and preference has exactly one machine meaning." | "Schema, enums, MCP tool descriptions" |
-| **BOUNDED** | "Agents act only inside limits the user has set." | "Preference API, spend and frequency caps" |
-| **REVERSIBLE** | "Every agent mistake is cheap to undo." | "Cancel window, one-tap Undo" |
-| **ACCOUNTABLE** | "Every agent action is attributable, logged and explainable." | "Signed mandates, per-platform monitoring" |
+**[DIAGRAM — Control boundary]** *(horizontal flow: three icon nodes, then a dashed vertical line labelled "API / MCP BOUNDARY", then a highlighted Instacart box)*
+- Node `user-round`: "User" → Node `smartphone`: "Phone's AI agent"
+- Under both nodes, a greyed caption box headed with icon `eye-off`, "**Outside our control**": "User's intent & phrasing · the agent's LLM reasoning · which platform shows up · how it reads our docs"
+- ┊ dashed boundary ┊
+- Highlighted box (#003D29 border, light green tint), icon `server-cog`, "**Inside our control**": "API / MCP schema & tool docs · server-side validation & guardrails · preference & mandate store · catalogue units · monitoring & per-platform kill switch"
 
-**[TABLE — Six decisions]** *(column widths 5% / 20% / 57% / 6% / 12%)*
+**[CARDS — The Delegation Contract]** *(label "THE DELEGATION CONTRACT · four properties every agent action must satisfy"; 4 compact cards, top border in the pillar colour, icon top-left)*
 
-| # | Question | Our answer | Slide | Pillar |
-|---|---|---|---|---|
-| Q1 | Why start with groceries? | "Groceries score **91.5%** on our Agentic Readiness Score and lead on all five criteria, so they win under any weighting. Mistakes are cheap, frequent and visible." | 4 | REVERSIBLE |
-| Q2 | Build the flashy demo, or push back? | "**Push back on the scope, not the date.** 80% of capacity stays on production APIs; 20% builds a demo layer on top of them. The flashy feature appears only as a labelled prototype." | 5 | ACCOUNTABLE |
-| Q3 | Checkout API or Substitution-Preference API? | "**Substitution-Preference API** (4.50 vs 2.75). Checkout already works via ACP; substitutions happen ~once per order. We'd flip if agent checkout success fell below 90%." | 6 | BOUNDED |
-| Q4 | Why do agents read `quantity: 2` differently? | "**A design error in our contract**, not a bad agent. Make units mandatory, match on `product_id`, read back what the server understood, and certify agents before they can write." | 7–8 | LEGIBLE |
-| Q5 | Orders-per-user-per-month threshold? | "**5 autonomous orders/month** (weekly shop + 1 top-up). Above it the agent asks for one-tap approval; it isn't blocked. Loosen only while the unintended-order rate stays below 0.5%." | 9–10 | BOUNDED · REVERSIBLE |
-| Q6 | "Should we be worried?" | "**Yes, honestly.** They stalled on grocery's known hard problems, which we've built for first. Here's where we're still exposed, and the three signals we'll review with you every week." | 11 | ACCOUNTABLE |
+| Icon | Pillar | Card body | Lever (footer) |
+|---|---|---|---|
+| `scan-text` | **LEGIBLE** | "Every field, unit and preference has exactly one machine meaning." | "Schema, enums, MCP tool docs" |
+| `shield-check` | **BOUNDED** | "Agents act only inside limits the user has set." | "Preference API, spend & frequency caps" |
+| `undo-2` | **REVERSIBLE** | "Every agent mistake is cheap to undo." | "Cancel window, one-tap Undo" |
+| `fingerprint` | **ACCOUNTABLE** | "Every agent action is attributable, logged and explainable." | "Signed mandates, per-platform monitoring" |
 
-**[STRIP — What we're deliberately not doing]** *(slim grey strip, 3 items separated by dots)* "**Deliberately not doing:** building a custom checkout protocol (we adopt ACP/AP2) · shipping the flashy demo feature to production · letting agents substitute allergen-flagged items without asking"
+**[PERSONA CARDS — Who we design for]** *(label "WHO WE DESIGN FOR"; 3 compact cards. Each has a round icon avatar with a tinted background, a header, a one-line italic quote in a speech-bubble shape, then 3 labelled lines at 12–13 px)*
 
-**[CALLOUT]** "SO WHAT → Each answer trades a little speed now for trust that compounds: an agent gets more autonomy every time the data shows it hasn't misused what it already has."
+- **Card 1: icon `shopping-basket`, green tint**
+  - Header: "**The User** · Meera, 34, weekly shopper"
+  - Quote: *"Just get my usual, but never swap the baby formula."*
+  - "**Needs:** weekly shop done without opening the app; her rules respected"
+  - "**Fears:** an order she didn't mean; 10-minute substitution hunts"
+  - "**So we:** make preferences and Undo first-class product"
+- **Card 2: icon `bot`, blue tint**
+  - Header: "**The Agent** · the phone's AI assistant"
+  - Quote: *"`quantity: 2`… of what?"*
+  - "**Needs:** unambiguous fields, enums, errors it can self-correct from"
+  - "**Breaks on:** unitless fields, silent defaults, name-based matching"
+  - "**So we:** treat the LLM reading our docs as a user"
+- **Card 3: icon `trending-up`, purple tint**
+  - Header: "**The Business** · Instacart VP & board"
+  - Quote: *"Show the board it works before ChatGPT does."*
+  - "**Needs:** a credible growth channel; a board demo in 6 weeks"
+  - "**Fears:** a public incident; agents skipping sponsored placements"
+  - "**So we:** ship on real rails, with guardrails visible"
 
-**[FOOTER]** "ACP = Agentic Commerce Protocol (OpenAI/Stripe) · AP2 = Agent Payments Protocol (Google) · MCP = Model Context Protocol. Full glossary on slide 3."
+**[ASSUMPTIONS]** *(panel labelled "KEY ASSUMPTIONS"; 4 rows, each with a small icon)*
+- `plug`: "Agents connect via Instacart's API/MCP; checkout rails partly exist (ChatGPT checkout via ACP, Dec 2025)"
+- `circle-dollar-sign`: "US market; ~$115 average order (Q2 2026: $10.35B GTV ÷ 90.3M orders)"
+- `database`: "No historical data on agent-initiated orders"
+- `users`: "The Q2 demo team = the Q3 team (2 engineers × 4 weeks)"
 
----
+**[CALLOUT]** "SO WHAT → We can't make agents smarter. We can make our contract impossible to misread and our guardrails impossible to bypass. Every decision in this deck follows from that."
 
-### SLIDE 3 — Context, Personas, Assumptions & Glossary
-*Nav: Context · Chips: LEGIBLE, BOUNDED · No question strip.*
-
-**LAYOUT**
-```
-┌ nav ───────────────────────────────────────────────────────────┐
-│ [TITLE]                                               [chips] │
-│ [TAKEAWAY]                                                    │
-│ ┌ DIAGRAM: control ─┐ ┌CARD 1 ─┐ ┌CARD 2 ─┐ ┌CARD 3 ─┐          │
-│ │ boundary (30%)    │ │ User   │ │ Agent  │ │ Board  │          │
-│ └───────────────────┘ └────────┘ └────────┘ └────────┘          │
-│ ┌ ASSUMPTIONS (50%) ──────────┐ ┌ GLOSSARY (50%) ────────────┐ │
-│ └─────────────────────────────┘ └────────────────────────────┘ │
-│ [CALLOUT]                                                      │
-└────────────────────────────────────────────────────────────────┘
-```
-
-**[TITLE]** "The agent isn't ours: Instacart controls only the contract and the guardrails, so we design for three users"
-
-**[TAKEAWAY]** "A third-party agent will read our API literally and act at scale. That makes the agent a user persona, and the API the product."
-
-**[DIAGRAM — Control boundary]** *(two columns split by a dashed vertical line labelled "API / MCP boundary"; left column greyed, right column in a #003D29 tint)*
-- "**Outside our control**": "The user's intent and phrasing" · "The agent's LLM reasoning" · "Which agent platform shows up" · "How the agent reads our docs"
-- "**Inside our control**": "API / MCP schema and tool descriptions" · "Server-side validation and guardrails" · "Preference and mandate store" · "Catalogue data (units, pack sizes)" · "Monitoring and a per-platform kill switch"
-
-**[CARD 1 — The User]** *(icon: person with basket)*
-- "**Meera, 34 — working parent, weekly shopper**"
-- "**Wants**: the weekly shop done without opening the app · her rules respected ("never substitute baby formula", "organic milk only") · to see what was bought, and undo it if wrong"
-- "**Pain points**: 10+ minutes picking substitutes item by item · fear of the agent buying something she didn't mean · surprises at the door"
-- "**What it means for us**: preferences and the cancel window are product, not settings."
-
-**[CARD 2 — The Agent]** *(icon: phone with sparkle)*
-- "**The phone's AI assistant — a literal-minded new hire who reads our docs once**"
-- "**Wants**: unambiguous fields with enums and examples · error messages it can self-correct from · a way to ask the user when unsure"
-- "**Pain points**: unitless fields and silent defaults · products matched by name · no read-back of what the server understood"
-- "**What it means for us**: treat the LLM reading our MCP docs as a user. Any ambiguity we allow becomes errors at scale."
-
-**[CARD 3 — The Business]** *(icon: chart)*
-- "**Instacart product VP & board**"
-- "**Wants**: proof that agentic commerce is a growth channel vs ChatGPT and Amazon · an impressive board demo in 6 weeks · no public incident"
-- "**Pain points**: a competitor stalled publicly · agents skip sponsored placements, while ad revenue grows faster than GTV · zero data on agent-placed orders"
-- "**What it means for us**: show progress on real rails, with guardrails visible."
-
-**[ASSUMPTIONS]** *(numbered list, 12 px)*
-1. "Agents act for users at scale within 12 months (the brief's thesis)."
-2. "Agents connect via Instacart's API/MCP; checkout rails partly exist (ChatGPT checkout via ACP, Dec 2025)."
-3. "US market; ~$115 average order (Q2 2026: $10.35B GTV ÷ 90.3M orders)."
-4. "No historical data on agent-initiated orders exists."
-5. "The Q2 demo team and the Q3 team (2 engineers × 4 weeks) are the same team."
-
-**[GLOSSARY]** *(two-column definition list, 11 px)*
-- "**ACP** — OpenAI/Stripe protocol that lets an AI agent complete a checkout"
-- "**AP2** — Google's agent-payments protocol; a signed *Intent Mandate* (the user's standing rules) and *Cart Mandate* (the exact cart)"
-- "**MCP** — Model Context Protocol; how an agent discovers and calls our tools"
-- "**Wizard-of-Oz prototype** — a demo where some steps are mocked behind the scenes; staging only"
-- "**Idempotency key** — an ID that stops a retried request from creating a duplicate order"
-- "**Conformance suite** — test cases an agent platform must pass before it can place real orders"
-- "**P90** — the value 90% of users fall at or below"
-
-**[CALLOUT]** "SO WHAT → We can't make agents smarter. We can make our contract impossible to misread and our guardrails impossible to bypass."
-
-**[FOOTER]** "Sources: Instacart Q2 2026 results; Digital Commerce 360 (Dec 2025); Instacart Developer Platform docs (MCP)."
+**[FOOTER]** "ACP = Agentic Commerce Protocol (OpenAI/Stripe) · AP2 = Agent Payments Protocol (Google) · MCP = Model Context Protocol. Sources: Instacart Q2 2026 results; Digital Commerce 360 (Dec 2025)."
 
 ---
 
-### SLIDE 4 — Q1: Why groceries
+### SLIDE 3 — Q1: Why groceries
 *Nav: Q1 Market · Chips: REVERSIBLE, BOUNDED*
 
 **LAYOUT**
@@ -251,7 +215,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 ---
 
-### SLIDE 5 — Q2: The flashy board demo
+### SLIDE 4 — Q2: The flashy board demo
 *Nav: Q2 Demo · Chips: ACCOUNTABLE, REVERSIBLE*
 
 **LAYOUT**
@@ -321,7 +285,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 ---
 
-### SLIDE 6 — Q3: Which API to make agent-readable
+### SLIDE 5 — Q3: Which API to make agent-readable
 *Nav: Q3 Build · Chips: BOUNDED, LEGIBLE. Dense slide: use 12 px table text throughout.*
 
 **LAYOUT**
@@ -392,7 +356,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 ---
 
-### SLIDE 7 — Q4a: Diagnose (RCA)
+### SLIDE 6 — Q4a: Diagnose (RCA)
 *Nav: Q4 Contract · Chips: LEGIBLE, ACCOUNTABLE*
 
 **LAYOUT**
@@ -446,7 +410,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 ---
 
-### SLIDE 8 — Q4b: Fix (three horizons)
+### SLIDE 7 — Q4b: Fix (three horizons)
 *Nav: Q4 Contract · Chips: LEGIBLE, ACCOUNTABLE, REVERSIBLE*
 
 **LAYOUT**
@@ -525,7 +489,7 @@ POST /v2/cart/items
 
 ---
 
-### SLIDE 9 — Q5a: The number
+### SLIDE 8 — Q5a: The number
 *Nav: Q5 Guardrails · Chips: BOUNDED, REVERSIBLE*
 
 **LAYOUT**
@@ -581,7 +545,7 @@ POST /v2/cart/items
 
 ---
 
-### SLIDE 10 — Q5b: The guardrail system
+### SLIDE 9 — Q5b: The guardrail system
 *Nav: Q5 Guardrails · Chips: BOUNDED, REVERSIBLE, ACCOUNTABLE*
 
 **LAYOUT**
@@ -641,7 +605,7 @@ POST /v2/cart/items
 
 ---
 
-### SLIDE 11 — Q6: "Should we be worried?"
+### SLIDE 10 — Q6: "Should we be worried?"
 *Nav: Q6 Risk · Chips: ACCOUNTABLE*
 
 **LAYOUT**
@@ -680,11 +644,11 @@ I'd suggest a joint pre-mortem this week, and three signals we review together e
 
 | Failure mode | Our exposure | Mitigation | Where in this deck | Early-warning signal |
 |---|---|---|---|---|
-| Big-bang rewrite, nothing shipped | MED | Thin slices every 2–4 weeks, each measurable | Q3 (4-week v1) | No shipped slice in 4 weeks |
-| Over-promised demo | **HIGH** | Demo on real rails; prototypes labelled | Q2 | Board asks for a launch date on a prototype |
-| No guardrails → public incident | MED | Six guardrail layers, staged cohorts, incident playbook | Q5 | Unintended-order rate > 0.5% |
-| Ambiguous contract breaks with real agents | MED | Strict v2 contract + conformance gate | Q4 | Per-platform divergence alert |
-| Agent adoption slower than the thesis | **HIGH** | No-regret moves (below) | Q1 (start where value is fastest) | Agent orders below plan two months running |
+| Big-bang rewrite, nothing shipped | MED | Thin slices every 2–4 weeks, each measurable | Q3 · slide 5 | No shipped slice in 4 weeks |
+| Over-promised demo | **HIGH** | Demo on real rails; prototypes labelled | Q2 · slide 4 | Board asks for a launch date on a prototype |
+| No guardrails → public incident | MED | Six guardrail layers, staged cohorts, incident playbook | Q5 · slides 8–9 | Unintended-order rate > 0.5% |
+| Ambiguous contract breaks with real agents | MED | Strict v2 contract + conformance gate | Q4 · slides 6–7 | Per-platform divergence alert |
+| Agent adoption slower than the thesis | **HIGH** | No-regret moves (below) | Q1 · slide 3 | Agent orders below plan two months running |
 | Unclear ownership → blame | LOW–MED | Joint RACI, shared weekly risk register, pre-agreed kill/pivot criteria | — | Decisions slipping > 1 week |
 
 **[NO-REGRET MOVES]** "**Even if agents arrive late, the work isn't wasted.** Structured units → fewer wrong-quantity refunds · preference API → better human-shopper substitutions · idempotent cart → fewer duplicate orders. The downside is bounded."
@@ -697,7 +661,7 @@ I'd suggest a joint pre-mortem this week, and three signals we review together e
 
 ---
 
-### SLIDE 12 — North Star Metric & Dashboard
+### SLIDE 11 — North Star Metric & Dashboard
 *Nav: Metrics · Chips: all four · No question strip. Layout modelled on the "Initiatives → KPI → Dimension → North Star" tree.*
 
 **LAYOUT**
@@ -808,11 +772,11 @@ PUT /v1/users/{id}/substitution-preferences
 ---
 
 ## Part D — Pre-submission checklist
-- [ ] Read only the 12 titles: does each one answer its question in the brief's own words?
+- [ ] Read only the 11 titles: does each one answer its question in the brief's own words?
 - [ ] Every number on a slide has a footer source or shows its maths on the slide.
 - [ ] No slide mentions an appendix.
 - [ ] Estimates are marked "~", "est." or "dated".
 - [ ] Q2, Q3 and Q5 each state a clear choice *and* a flip or rollback condition.
 - [ ] Consistency: checkout stays human-confirmed early (Q3 what-if table, Q5 tiers, exec summary strip).
-- [ ] The densest slides (5, 6, 7, 10, 11) are readable at 100% zoom in the exported PDF.
+- [ ] The densest slides (2, 4, 5, 6, 9, 10) are readable at 100% zoom in the exported PDF.
 - [ ] Open every source link once and confirm the figure.
