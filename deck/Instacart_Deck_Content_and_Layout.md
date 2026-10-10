@@ -1,7 +1,7 @@
 # Instacart Agent-Readiness — Deck Content & Layout Spec (v2)
-*Reading deck: 13 slides + appendix, 16:9 (1920 × 1080). Every word in quotes or inside a block is final slide copy. Text in *(italics)* is a layout instruction, not slide copy.*
+*Reading deck: 12 slides + appendix, 16:9 (1920 × 1080). Every word in quotes or inside a block is final slide copy. Text in *(italics)* is a layout instruction, not slide copy.*
 
-**What changed from v1:** your per-question structure is built in (Q1–Q6 + NSM). Q3, Q4 and Q5 are now two slides each. Every question slide opens with the brief's own question. Q2 uses a pre-mortem. Q3 gains a "when would checkout win?" what-if exhibit. Q4 uses a fishbone plus 5 Whys. Q5 has a sourced guesstimate and a precision/recall matrix. Q6 adds a situation analysis. The roadmap slide is gone; its "what we're not doing" moved to the exec summary.
+**What changed from v1:** your per-question structure is built in (Q1–Q6 + NSM). Q4 and Q5 are two slides each; Q3 is one dense slide. Every question slide opens with the brief's own question. Q2 uses a pre-mortem. Q3 gains a "when would checkout win?" what-if exhibit. Q4 uses a fishbone plus 5 Whys. Q5 has a sourced guesstimate and a precision/recall matrix. Q6 adds a situation analysis. The roadmap slide is gone; its "what we're not doing" moved to the exec summary.
 
 ---
 
@@ -22,7 +22,7 @@
 ### A2. Per-slide prompt template
 > Using the design system above, build slide [N]. Active nav tab: [TAB]. Pillar chips: [CHIPS]. Layout: [paste the LAYOUT sketch]. Content: [paste the blocks exactly]. Keep all copy verbatim; don't add or rewrite text. Render tables as real tables, not images.
 
-Build one slide per prompt. The densest slides are 5, 8, 11 and 12; expect to tighten their fonts by hand.
+Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to tighten their fonts by hand.
 
 ### A3. Block legend
 `[Q]` question strip · `[TITLE]` action title · `[TAKEAWAY]` · `[TABLE]` · `[CHART]` · `[DIAGRAM]` · `[CARD]` · `[CODE]` · `[QUOTE]` · `[CALLOUT]` · `[FOOTER]`
@@ -37,13 +37,12 @@ Build one slide per prompt. The densest slides are 5, 8, 11 and 12; expect to ti
 4. **Q1** — Groceries score 91.5% on agentic readiness and lead on every criterion, so they're the right place to start under any weighting
 5. **Q2** — Push back on the scope, not the date: the board gets its demo in six weeks, built on the real foundation
 6. **Q3** — Pick the Substitution-Preference API: in grocery, substitution is the leak, and checkout already has a working path
-7. **Q3** — Two engineers can ship a v1 Substitution-Preference API in four weeks, seeded with data only Instacart has
-8. **Q4** — Neither agent is wrong: the root cause is a design error, a contract built for humans who see context and consumed by agents who don't
-9. **Q4** — Make the contract strict, make the server read back what it understood, and certify agents before they can write
-10. **Q5** — Start at 5 autonomous orders per user per month — a weekly shop plus one top-up — because a missed bad order costs far more than an extra question
-11. **Q5** — Above any limit the agent asks, it isn't blocked: six layers of guardrails that loosen only when the data earns it
-12. **Q6** — Yes, take it seriously: they stalled on the problems we've built for first, and here's exactly where we're still exposed
-13. One North Star, Trusted Agent Orders, driven by four input dimensions and kept honest by counter-metrics with hard thresholds
+7. **Q4** — Neither agent is wrong: the root cause is a design error, a contract built for humans who see context and consumed by agents who don't
+8. **Q4** — Make the contract strict, make the server read back what it understood, and certify agents before they can write
+9. **Q5** — Start at 5 autonomous orders per user per month — a weekly shop plus one top-up — because a missed bad order costs far more than an extra question
+10. **Q5** — Above any limit the agent asks, it isn't blocked: six layers of guardrails that loosen only when the data earns it
+11. **Q6** — Yes, take it seriously: they stalled on the problems we've built for first, and here's exactly where we're still exposed
+12. One North Star, Trusted Agent Orders, driven by four input dimensions and kept honest by counter-metrics with hard thresholds
 
 ---
 
@@ -117,10 +116,10 @@ Build one slide per prompt. The densest slides are 5, 8, 11 and 12; expect to ti
 |---|---|---|---|---|
 | Q1 | Why start with groceries? | "Groceries score **91.5%** on our Agentic Readiness Score and lead on all five criteria, so they win under any weighting. Mistakes are cheap, frequent and visible." | 4 | REVERSIBLE |
 | Q2 | Build the flashy demo, or push back? | "**Push back on the scope, not the date.** 80% of capacity stays on production APIs; 20% builds a demo layer on top of them. The flashy feature appears only as a labelled prototype." | 5 | ACCOUNTABLE |
-| Q3 | Checkout API or Substitution-Preference API? | "**Substitution-Preference API** (4.50 vs 2.75). Checkout already works via ACP; substitutions happen ~once per order. We'd flip if agent checkout success fell below 90%." | 6–7 | BOUNDED |
-| Q4 | Why do agents read `quantity: 2` differently? | "**A design error in our contract**, not a bad agent. Make units mandatory, match on `product_id`, read back what the server understood, and certify agents before they can write." | 8–9 | LEGIBLE |
-| Q5 | Orders-per-user-per-month threshold? | "**5 autonomous orders/month** (weekly shop + 1 top-up). Above it the agent asks for one-tap approval; it isn't blocked. Loosen only while the unintended-order rate stays below 0.5%." | 10–11 | BOUNDED · REVERSIBLE |
-| Q6 | "Should we be worried?" | "**Yes, honestly.** They stalled on grocery's known hard problems, which we've built for first. Here's where we're still exposed, and the three signals we'll review with you every week." | 12 | ACCOUNTABLE |
+| Q3 | Checkout API or Substitution-Preference API? | "**Substitution-Preference API** (4.50 vs 2.75). Checkout already works via ACP; substitutions happen ~once per order. We'd flip if agent checkout success fell below 90%." | 6 | BOUNDED |
+| Q4 | Why do agents read `quantity: 2` differently? | "**A design error in our contract**, not a bad agent. Make units mandatory, match on `product_id`, read back what the server understood, and certify agents before they can write." | 7–8 | LEGIBLE |
+| Q5 | Orders-per-user-per-month threshold? | "**5 autonomous orders/month** (weekly shop + 1 top-up). Above it the agent asks for one-tap approval; it isn't blocked. Loosen only while the unintended-order rate stays below 0.5%." | 9–10 | BOUNDED · REVERSIBLE |
+| Q6 | "Should we be worried?" | "**Yes, honestly.** They stalled on grocery's known hard problems, which we've built for first. Here's where we're still exposed, and the three signals we'll review with you every week." | 11 | ACCOUNTABLE |
 
 **[STRIP — What we're deliberately not doing]** *(slim grey strip, 3 items separated by dots)* "**Deliberately not doing:** building a custom checkout protocol (we adopt ACP/AP2) · shipping the flashy demo feature to production · letting agents substitute allergen-flagged items without asking"
 
@@ -322,8 +321,8 @@ Build one slide per prompt. The densest slides are 5, 8, 11 and 12; expect to ti
 
 ---
 
-### SLIDE 6 — Q3a: The decision
-*Nav: Q3 Build · Chips: BOUNDED, LEGIBLE*
+### SLIDE 6 — Q3: Which API to make agent-readable
+*Nav: Q3 Build · Chips: BOUNDED, LEGIBLE. Dense slide: use 12 px table text throughout.*
 
 **LAYOUT**
 ```
@@ -331,11 +330,12 @@ Build one slide per prompt. The densest slides are 5, 8, 11 and 12; expect to ti
 │ [Q]                                                            │
 │ [TITLE]                                               [chips] │
 │ [TAKEAWAY]                                                    │
-│ ┌ OPTION A def ──────────┐ ┌ OPTION B def ──────────┐  2 cards │
-│ ┌ TABLE: weighted matrix (50%) ┐ ┌ CHART: decision map (50%) ┐ │
-│ │                              │ │ 2×2 when-each-wins         │ │
-│ └──────────────────────────────┘ └────────────────────────────┘ │
-│ ┌ TABLE: what-if scenarios (full width, 5 rows) ─────────────┐ │
+│ ┌ TABLE: weighted ─────┐ ┌ CHART: decision ─┐ ┌ TABLE: what-if ┐│
+│ │ matrix (40%)         │ │ map 2×2 (30%)    │ │ (30%)          ││
+│ └──────────────────────┘ └──────────────────┘ └────────────────┘│
+│ ┌ CHART: 4-week Gantt, E1/E2 (62%) ┐ ┌ COLD START · CUT ·     ┐ │
+│ │ 4 rows                            │ │ METRICS (38%, stacked)  │ │
+│ └───────────────────────────────────┘ └────────────────────────┘ │
 │ [CALLOUT]                                                      │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -346,115 +346,53 @@ Build one slide per prompt. The densest slides are 5, 8, 11 and 12; expect to ti
 
 **[TAKEAWAY]** "Without preferences, an agent either pings the user on almost every order or guesses. Either way, it stops being a trusted shopper."
 
-**[OPTION CARDS]**
-- **A — Checkout API, agent-readable:** "An agent can price, pay for and place an order programmatically."
-- **B — Substitution-Preference API, agent-readable:** "An agent can read and write the user's rules for what to do when an item is unavailable." *(RECOMMENDED tag)*
+**[TABLE — Weighted decision matrix, 1–5]** *(the two column headers carry the option definitions in 10 px grey under the name; column B outlined as RECOMMENDED)*
 
-**[TABLE — Weighted decision matrix, 1–5]** *(column B outlined)*
-
-| Criterion | Weight | A. Checkout | **B. Substitution** |
+| Criterion | Wt | **A. Checkout API** *(agent can price, pay and place an order)* | **B. Substitution-Preference API** *(agent can read and write the user's rules for unavailable items)* |
 |---|---|---|---|
-| Unblocks autonomy | 30% | 3 — completes the order, but a human can already confirm it | **5** — without it, the agent asks or guesses on ~every order |
-| Moat | 20% | 2 — being commoditised by ACP, AP2, Visa and Mastercard rails | **5** — built on Instacart's substitution history |
+| Unblocks autonomy | 30% | 3 — a human can already confirm checkout | **5** — without it, the agent asks or guesses on ~every order |
+| Moat | 20% | 2 — commoditised by ACP, AP2, Visa and Mastercard rails | **5** — built on Instacart's substitution history |
 | Risk in 4 weeks | 20% | 2 — money path, irreversible, fraud surface | **4** — rules API, small blast radius |
 | Feasible: 2 eng × 4 wks | 15% | 3 — payments, auth, compliance | **4** — schema + endpoints + escalation hook |
 | Measurability | 15% | 4 | **4** |
 | **Weighted score** | | **2.75 (55%)** | **4.50 (90%)** |
 
-**[CHART — Decision map: when does each option win?]** *(2×2)*
-- X axis: "**Agent checkout readiness →**" (can an agent already complete a purchase reliably? low → high)
-- Y axis: "**Substitution frequency →**" (replacements per order, low → high)
-- Quadrants:
-  - Top-right: "**Substitution first** — checkout works; stockouts are the leak"
-  - Top-left: "**Checkout first, then substitution** — fix the leak, then save the cart"
-  - Bottom-left: "**Checkout first** — nothing else matters if orders can't complete"
-  - Bottom-right: "**Neither is the bottleneck** — invest in recurring lists or discovery"
-- Points: "★ **Instacart today**" in the top-right *(ACP checkout live; ~1 replacement per order)*. Faded reference dots: "Early-stage agent startup" (bottom-left), "Electronics retailer" (bottom-right), "New quick-commerce app" (top-left).
+**[CHART — Decision map: when does each option win?]** *(small 2×2)*
+- X axis: "**Agent checkout readiness →**" (can an agent already complete a purchase reliably?)
+- Y axis: "**Substitution frequency →**" (replacements per order)
+- Quadrants: top-right "**Substitution first**" · top-left "**Checkout first, then substitution**" · bottom-left "**Checkout first**" · bottom-right "**Neither is the bottleneck**"
+- Point: "★ **Instacart today**" in the top-right *(ACP checkout live; ~1 replacement per order)*
 
-**[TABLE — What-if scenarios: when would we flip?]**
+**[TABLE — What-if: when would we flip?]** *(the "Today" row bold)*
 
-| Scenario | Pick | Why |
-|---|---|---|
-| **Today:** ACP checkout live, ~1 replacement per order | **Substitution** | Checkout has a workaround (one-tap confirm); substitutions don't |
-| Agent checkout success rate < 90% across platforms | Checkout | "Fix the leak before you buy more water" |
-| The phone's agent has no ACP / hand-off path at all | Checkout | Nothing completes, so nothing else matters |
-| Real-time inventory cuts replacements below 0.1 per order | Checkout | Substitution stops being the bottleneck |
-| Board insists on fully autonomous checkout in the demo | **Still Substitution** | The demo uses one-tap confirm; safe sequencing beats a demo wish |
+| Scenario | Pick |
+|---|---|
+| **Today:** ACP checkout live, ~1 replacement/order | **Substitution** |
+| Agent checkout success < 90% across platforms | Checkout ("fix the leak first") |
+| The phone's agent has no ACP / hand-off path | Checkout |
+| Real-time inventory cuts replacements < 0.1/order | Checkout |
 
-**[CALLOUT]** "SO WHAT → 'Fix the leak first' is the right rule, and in grocery the leak is substitution: about one replacement per order. Checkout earns priority only if agent checkout success falls below 90%."
+**[CHART — 4-week Gantt]** *(4 rows; one bar per row in its week; label each bar E1, E2 or E1+E2; a faded arrow after Wk 4 reads "→ powers the Wk-6 board demo (Q2)")*
 
-**[FOOTER]** "Sources: Instacart × ChatGPT checkout via ACP (Dec 2025); Google AP2 (Sep 2025); CXM World (~300M replacements in 2024 vs ~290M orders)."
+| Week | Workstream | Engineers | Bar label |
+|---|---|---|---|
+| Wk 1 | Schema & defaults | E1+E2 | "Per-item rules: ranked alternates, brand/size/price limits, diet & allergen tags, `on_unavailable: substitute / skip / ask_user`; category defaults" |
+| Wk 2 | API + MCP tools | E1 · E2 | "Read/write endpoints v1 · MCP tool definitions with enums and worked examples" |
+| Wk 3 | Explain + escalate | E1 · E2 | "Explanation payload ('X → Y: same brand, +4%, within your rule') · `ask_user` webhook" |
+| Wk 4 | Test + pilot | E1+E2 | "Conformance tests with 2 agent platforms · 100-case eval set · pilot cohort" |
 
----
+**[COLD START · CUT · METRICS]** *(3 stacked mini-panels)*
+- "**Cold start:** seed each user's rules from their history of accepting and rejecting substitutions in the Instacart app. No competitor has this data."
+- "**Cut from v1:** ML-ranked alternates · substitutions across stores · a new preferences UI · checkout changes (keep ACP + one-tap confirm)."
+- "**Success:** ≥ 95% substitution acceptance (human-shopper baseline) · `ask_user` escalations per order falling week over week · refunds on substituted items ≤ baseline."
 
-### SLIDE 7 — Q3b: The 4-week plan
-*Nav: Q3 Build · Chips: BOUNDED, LEGIBLE, ACCOUNTABLE*
+**[CALLOUT]** "SO WHAT → 'Fix the leak first' is the right rule, and in grocery the leak is substitution: about one replacement per order. This API *is* the 'boundaries the user has set' in the brief."
 
-**LAYOUT**
-```
-┌ nav ───────────────────────────────────────────────────────────┐
-│ [Q]                                                            │
-│ [TITLE]                                               [chips] │
-│ [TAKEAWAY]                                                    │
-│ ┌ CODE: preference schema (40%) ┐ ┌ CHART: Gantt, E1/E2 (60%) ┐ │
-│ └───────────────────────────────┘ └───────────────────────────┘ │
-│ ┌ COLD START (33%) ┐ ┌ NOT IN v1 (33%) ┐ ┌ SUCCESS METRICS (33%)┐│
-│ [CALLOUT]                                                      │
-└────────────────────────────────────────────────────────────────┘
-```
-
-**[Q]** *(short form)* "THE QUESTION · 2 engineers, 4 weeks: checkout API or substitution-preference API? *(continued)*"
-
-**[TITLE]** "Two engineers can ship a v1 Substitution-Preference API in four weeks, seeded with data only Instacart has"
-
-**[TAKEAWAY]** "Scope it as rules plus escalation, not ML. The data moat comes from seeding it with each user's substitution history."
-
-**[CODE — Preference schema v1]**
-```
-PUT /v1/users/{id}/substitution-preferences
-{
-  "category_defaults": {
-    "dairy": { "on_unavailable": "substitute",
-               "brand_lock": false, "price_ceiling_pct": 10 }
-  },
-  "items": [{
-    "product_id": "55021",            // Organic 2% milk, 1 gal
-    "allow_substitution": true,
-    "ranked_alternates": ["55034", "55090"],
-    "constraints": { "size_tolerance_pct": 0,
-                     "price_ceiling_pct": 5,
-                     "must_have": ["organic"] },
-    "on_unavailable": "substitute"     // substitute | skip | ask_user
-  }],
-  "allergen_rule": "always_ask_user"
-}
-```
-
-**[CHART — Gantt]** *(rows = workstreams; columns Wk 1–4 + faded Wk 5–6)*
-
-| Workstream | Wk 1 | Wk 2 | Wk 3 | Wk 4 | Wk 5–6 *(faded)* |
-|---|---|---|---|---|---|
-| Schema & defaults *(E1+E2)* | ███ "Per-item rules, ranked alternates, constraints, category defaults; seed from history" | | | | |
-| API + MCP tools | | ███ E1: "read/write endpoints v1" · E2: "MCP tool definitions with enums and worked examples" | | | |
-| Explain + escalate | | | ███ E1: "explanation payload: 'X → Y: same brand, +4% price, within your rule'" · E2: "`ask_user` escalation webhook" | | |
-| Test + pilot *(E1+E2)* | | | | ███ "Conformance tests with 2 agent platforms · 100-case eval set · pilot cohort" | "Powers the board demo (Q2)" |
-
-**[COLD START]** "**Day-1 preferences without asking users:** seed each user's rules from their history of accepting and rejecting substitutions in the Instacart app. No competitor has this data, and it's the moat in the matrix."
-
-**[NOT IN v1]** "**Deliberately cut:** ML-ranked alternates · substitutions across stores · a new preferences UI (agents write rules on the user's behalf) · checkout changes (keep ACP + one-tap confirm)"
-
-**[SUCCESS METRICS]** *(3 KPI tiles)*
-- "**≥ 95%** substitution acceptance (human-shopper baseline)"
-- "**↓ week over week** `ask_user` escalations per order"
-- "**≤ baseline** refunds on substituted items"
-
-**[CALLOUT]** "SO WHAT → The Substitution-Preference API *is* the 'boundaries the user has set' in the brief. It turns the agent from an assistant that asks into a shopper that knows."
-
-**[FOOTER]** "Product IDs and values are illustrative. Schema pattern follows Instacart Developer Platform conventions."
+**[FOOTER]** "Sources: Instacart × ChatGPT checkout via ACP (Dec 2025); Google AP2 (Sep 2025); CXM World (~300M replacements in 2024 vs ~290M orders). Full schema example in the appendix."
 
 ---
 
-### SLIDE 8 — Q4a: Diagnose (RCA)
+### SLIDE 7 — Q4a: Diagnose (RCA)
 *Nav: Q4 Contract · Chips: LEGIBLE, ACCOUNTABLE*
 
 **LAYOUT**
@@ -508,7 +446,7 @@ PUT /v1/users/{id}/substitution-preferences
 
 ---
 
-### SLIDE 9 — Q4b: Fix (three horizons)
+### SLIDE 8 — Q4b: Fix (three horizons)
 *Nav: Q4 Contract · Chips: LEGIBLE, ACCOUNTABLE, REVERSIBLE*
 
 **LAYOUT**
@@ -587,7 +525,7 @@ POST /v2/cart/items
 
 ---
 
-### SLIDE 10 — Q5a: The number
+### SLIDE 9 — Q5a: The number
 *Nav: Q5 Guardrails · Chips: BOUNDED, REVERSIBLE*
 
 **LAYOUT**
@@ -643,7 +581,7 @@ POST /v2/cart/items
 
 ---
 
-### SLIDE 11 — Q5b: The guardrail system
+### SLIDE 10 — Q5b: The guardrail system
 *Nav: Q5 Guardrails · Chips: BOUNDED, REVERSIBLE, ACCOUNTABLE*
 
 **LAYOUT**
@@ -703,7 +641,7 @@ POST /v2/cart/items
 
 ---
 
-### SLIDE 12 — Q6: "Should we be worried?"
+### SLIDE 11 — Q6: "Should we be worried?"
 *Nav: Q6 Risk · Chips: ACCOUNTABLE*
 
 **LAYOUT**
@@ -759,7 +697,7 @@ I'd suggest a joint pre-mortem this week, and three signals we review together e
 
 ---
 
-### SLIDE 13 — North Star Metric & Dashboard
+### SLIDE 12 — North Star Metric & Dashboard
 *Nav: Metrics · Chips: all four · No question strip. Layout modelled on the "Initiatives → KPI → Dimension → North Star" tree.*
 
 **LAYOUT**
@@ -833,6 +771,27 @@ I'd suggest a joint pre-mortem this week, and three signals we review together e
 - "**ARS, equal weights:** Groceries 9.2 · Food 5.8 · Travel 4.4 · Fashion 3.4 · Electronics 3.2"
 - "**Q3 matrix:** Checkout = 3×0.30 + 2×0.20 + 2×0.20 + 3×0.15 + 4×0.15 = **2.75**; Substitution = 5×0.30 + 5×0.20 + 4×0.20 + 4×0.15 + 4×0.15 = **4.50**"
 
+**Below the calculations — Preference schema v1 (Q3)** *(code block, 11 px)*
+```
+PUT /v1/users/{id}/substitution-preferences
+{
+  "category_defaults": {
+    "dairy": { "on_unavailable": "substitute",
+               "brand_lock": false, "price_ceiling_pct": 10 }
+  },
+  "items": [{
+    "product_id": "55021",            // Organic 2% milk, 1 gal
+    "allow_substitution": true,
+    "ranked_alternates": ["55034", "55090"],
+    "constraints": { "size_tolerance_pct": 0,
+                     "price_ceiling_pct": 5,
+                     "must_have": ["organic"] },
+    "on_unavailable": "substitute"     // substitute | skip | ask_user
+  }],
+  "allergen_rule": "always_ask_user"
+}
+```
+
 **Right column — Sources**
 - "Instacart Q2 2026 financial results (Aug 6, 2026)"
 - "Instacart Q4 2025 earnings call, via Barchart (26M+ customers in 2025)"
@@ -850,10 +809,10 @@ I'd suggest a joint pre-mortem this week, and three signals we review together e
 ---
 
 ## Part D — Pre-submission checklist
-- [ ] Read only the 13 titles: does each one answer its question in the brief's own words?
+- [ ] Read only the 12 titles: does each one answer its question in the brief's own words?
 - [ ] Every number appears in the appendix calculations or has a footer source.
 - [ ] Estimates are marked "~", "est." or "dated".
 - [ ] Q2, Q3 and Q5 each state a clear choice *and* a flip or rollback condition.
 - [ ] Consistency: checkout stays human-confirmed early (Q3 what-if table, Q5 tiers, exec summary strip).
-- [ ] The densest slides (5, 8, 11, 12) are readable at 100% zoom in the exported PDF.
+- [ ] The densest slides (5, 6, 7, 10, 11) are readable at 100% zoom in the exported PDF.
 - [ ] Open every source link once and confirm the figure.
