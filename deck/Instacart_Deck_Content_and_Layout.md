@@ -7,17 +7,32 @@
 
 ## Part A — Design system (paste into Figma Make first)
 
-### A1. Master prompt
-> Design a 16:9 presentation slide at 1920×1080 for a consulting-style *reading* deck. It will be exported to PDF and read without a presenter, so it should be dense but scannable. Use Inter only. Margins 64 px left/right, 48 px top/bottom; a 12-column grid with 24 px gutters.
+### A1. Master prompt — "Moody Futurism" (dark theme)
+*The earlier light theme (green on white) is in the git history if you ever need it.*
+
+> Restyle the deck in the visual language of this Moody Futurism template, adapted for a consulting-style *reading* deck: 16:9, 1920×1080. It will be exported to PDF and read without a presenter, so content must stay dense, high-contrast and scannable. **The mood lives in the frame; the content stays calm.**
+> **Typography:** the template's bold geometric display font for action titles and big numbers only; Inter for everything else (body, tables, chips). JetBrains Mono for code and field names.
+> **Colour tokens:**
+> background #07040F (near-black) · panel #151024 · raised panel / table header #1E1733 · divider #2E2550 · primary text #F2EEFF · secondary text #B8AED9 · muted text #7D74A0 · title lavender #D9D0FF · **brand pink #FF4F81**, used sparingly: the "SO WHAT" label, one key number or phrase per slide, and the RECOMMENDED tag.
+> **Atmosphere:** one soft purple radial glow (#4B3F8F, ≤ 15% opacity) bleeding in from the top-right corner of content slides, and a faint dot-grid in the same corner. **Never put a glow, gradient or dot-grid behind a table, chart or body text.**
+> **Margins and grid:** 64 px left/right, 48 px top/bottom; a 12-column grid with 24 px gutters.
 > **Fixed chrome on every content slide, top to bottom:**
-> (1) **Nav bar**, 40 px tall, full width, nine text tabs: Summary · Context · Q1 Market · Q2 Demo · Q3 Build · Q4 Contract · Q5 Guardrails · Q6 Risk · Metrics. The active tab is a filled pill in #003D29 with white text; inactive tabs are #6B7280 at 13 px. A 2 px #003D29 rule sits under the bar.
-> (2) **Question strip** (question slides only): a 1-line-high #F3F4F6 bar with a bold "THE QUESTION ·" label followed by the question text verbatim, 13 px italic #374151, max 2 lines.
-> (3) **Action title**: 32 px, bold, #1A1A1A, max 2 lines.
-> (4) **Takeaway line**: 17 px, medium, #0A8A0A, max 2 lines.
-> (5) **Pillar chips**, top-right of the title area: rounded tags LEGIBLE #2563EB, BOUNDED #0A8A0A, REVERSIBLE #D97706, ACCOUNTABLE #7C3AED (white 11 px caps).
-> (6) **"So what" callout** at the bottom: full-width box, #FFF4EC background, 6 px #FF7009 left border, a bold "SO WHAT →" label, then one sentence at 16 px.
-> (7) **Footer**: 10 px #6B7280 source line on the left, page number on the right.
-> **Components:** panels are #F6F7F5, 12 px radius, no shadow. Table headers are #003D29 with white 13 px bold text; body cells 12–14 px with 1 px #E5E7EB lines. Heat-map cells: 8–10 #D1FAE5, 5–7 #FEF3C7, 1–4 #FEE2E2. The recommended row or column gets a 2 px #0A8A0A outline and a small "RECOMMENDED" tag. Code blocks use JetBrains Mono 12–13 px on #0F172A with light text. Max two accent colours per slide besides the pillar chips. Prefer tables, matrices and diagrams to bullets; no text box over ~80 words.
+> (1) **Nav bar**, 40 px: nine tabs — Summary · Context · Q1 Market · Q2 Demo · Q3 Build · Q4 Contract · Q5 Guardrails · Q6 Risk · Metrics. Active tab = pill in #D9D0FF with #07040F text; inactive tabs #7D74A0, 13 px. Running header "MAKING INSTACART AGENT-READY" at top right, 11 px caps #7D74A0. A 1 px #2E2550 rule under the bar.
+> (2) **Question strip** (question slides only): #151024 bar, bold "THE QUESTION ·" label in #FF4F81, then the question verbatim in 13 px italic #B8AED9, max 2 lines.
+> (3) **Action title**: display font, 32 px, bold, #F2EEFF, max 2 lines.
+> (4) **Takeaway line**: 17 px, medium, #D9D0FF, max 2 lines.
+> (5) **Pillar chips**, top-right, on one row: *outlined* pills (1.5 px border + text in the same colour, transparent fill), 11 px caps — LEGIBLE #6EA8FF · BOUNDED #4ADE80 · REVERSIBLE #FBBF24 · ACCOUNTABLE #B794F6.
+> (6) **"So what" callout**: full-width #1A0F2A box, 4 px #FF4F81 left border, a bold "SO WHAT →" label in #FF4F81, then one sentence at 16 px #F2EEFF.
+> (7) **Footer**: 10 px #7D74A0 source line on the left, "NN / 12" page number on the right.
+> **Components:**
+> - Panels: #151024, 12 px radius, 1 px #2E2550 border, no shadow.
+> - Tables: header row #1E1733 with 12 px bold caps #D9D0FF; body rows transparent with 1 px #2E2550 dividers; body 13 px #F2EEFF; secondary cell text #B8AED9. Vertically centre all cells.
+> - Heat-map cells (dark-tuned): 8–10 = fill #0F3D2E, text #86EFAC · 5–7 = fill #3B3016, text #FCD34D · 1–4 = fill #241D33, text #8C82AD (low scores recede rather than shout).
+> - Recommended column or row: 2 px #FF4F81 outline + small pink "RECOMMENDED" tag.
+> - Status chips: HIGH = #FB923C with a ▲ icon · MED = #FBBF24 · LOW = #7D74A0. Don't use pink for bad news; pink always means "our pick / key point".
+> - Code blocks: #0B0816 fill, 1 px #2E2550 border, JetBrains Mono 12–13 px; keys #D9D0FF, strings #86EFAC, comments #7D74A0.
+> - Charts: axes and gridlines #2E2550, labels #B8AED9; our highlighted data point in #FF4F81, everything else #7D74A0.
+> **Rules:** body text must keep at least 4.5:1 contrast against its background. Max two accent colours per slide besides the pillar chips. Prefer tables, matrices and diagrams to bullets; no text box over ~80 words. Make sure background colours are included when exporting to PDF.
 
 ### A2. Per-slide prompt template
 > Using the design system above, build slide [N]. Active nav tab: [TAB]. Pillar chips: [CHIPS]. Layout: [paste the LAYOUT sketch]. Content: [paste the blocks exactly]. Keep all copy verbatim; don't add or rewrite text. Render tables as real tables, not images.
@@ -48,35 +63,37 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 ## Part C — Slide-by-slide content
 
+*Colour notes inside Part C follow the A1 dark tokens. Where a slide says "amber border", use #FBBF24; "red", use #FB923C.*
+
 ---
 
 ### SLIDE 1 — Cover
 *No nav bar, no question strip, no chips, no so-what box.*
 
+*Use the Moody Futurism template's cover as is: black background, large purple planet arcs, the dot-grid on the right, the glance ai logo top-left. Full glow and drama are fine here; this is the one slide with no dense content.*
+
 **LAYOUT**
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│  [EYEBROW]                                                   │
-│  [TITLE]                               ┌─────────────────┐   │
-│  [SUBTITLE]                            │  [DIAGRAM]      │   │
-│  [THESIS LINE]                         │  delegation flow│   │
-│                                        └─────────────────┘   │
-│  [Name · ID · College]                         [glance logo] │
+│ [glance ai logo]                                [EYEBROW]    │
+│                                              · · · · · · ·   │
+│ [TITLE line 1–2: lavender]                   · · dot grid ·  │
+│ [TITLE line 3: pink]                         · · · · · · ·   │
+│                                                              │
+│ [SUBTITLE: large lavender]                                   │
+│ [THESIS LINE: small, muted]               [NAME BLOCK, right]│
 └──────────────────────────────────────────────────────────────┘
- Left 55%: text on white. Right 45%: #003D29 panel with the diagram.
 ```
 
-**[EYEBROW]** "InMobi Glance · APM Case Study · Shortlist Round · October 2026"
+**[EYEBROW]** *(top-right, 13 px caps #B8AED9)* "APM Case Study · Shortlist Round · October 2026"
 
-**[TITLE]** "Making Instacart Agent-Ready"
+**[TITLE]** *(display font, as in the template)* "Making" / "Instacart" *(#D9D0FF)* / "**Agent Ready.**" *(#FF4F81)*
 
-**[SUBTITLE]** "The Delegation Contract: six decisions for letting a user's AI assistant shop on their behalf"
+**[SUBTITLE]** *(as in the template)* "Designing autonomy that users can trust."
 
-**[THESIS LINE]** *(16 px italic #6B7280)* "Being agent-ready isn't about letting agents click faster. It's about making a user's intent legible, bounded, reversible and accountable, so an agent Instacart doesn't own can act on it safely."
+**[THESIS LINE]** *(16 px #B8AED9, max 2 lines, under the subtitle)* "The Delegation Contract: six decisions that make a user's intent legible, bounded, reversible and accountable, so an agent Instacart doesn't own can act on it safely."
 
-**[DIAGRAM]** *(horizontal flow, white line icons on the dark panel)* "User" → "Phone's AI assistant" → **"Instacart contract layer"** *(highlighted box made of 4 stacked chips: LEGIBLE · BOUNDED · REVERSIBLE · ACCOUNTABLE)* → "Shopper & store" → "Doorstep"
-
-**[NAME BLOCK]** "[Your Name]" / "[Roll No.] · [College]"
+**[NAME BLOCK]** *(bottom-right, 14 px #F2EEFF / #7D74A0)* "[Your Name]" / "[Roll No.] · [College]"
 
 ---
 
@@ -150,7 +167,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 **[TAKEAWAY]** "A third-party agent will read our API literally and act at scale. That makes the agent a user persona, and the API the product."
 
-**[DIAGRAM — Control boundary]** *(two columns split by a dashed vertical line labelled "API / MCP boundary"; left column greyed, right column in a #003D29 tint)*
+**[DIAGRAM — Control boundary]** *(two columns split by a dashed vertical line labelled "API / MCP boundary"; left column greyed, right column in a #1E1733 panel with a #D9D0FF border)*
 - "**Outside our control**": "The user's intent and phrasing" · "The agent's LLM reasoning" · "Which agent platform shows up" · "How the agent reads our docs"
 - "**Inside our control**": "API / MCP schema and tool descriptions" · "Server-side validation and guardrails" · "Preference and mandate store" · "Catalogue data (units, pack sizes)" · "Monitoring and a per-platform kill switch"
 
@@ -310,7 +327,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 - Tag under the frames: "The flashy 'month of meals' feature → shown as a Wizard-of-Oz prototype, labelled **'Vision: next quarter'**"
 
 **[EXECUTION PLAN]** *(one 100% bar, then a 6-week strip)*
-- Bar: **80% Foundation** (#003D29): "Substitution-Preference API · unit-safe cart · guardrail service" | **20% Demo layer** (#FF7009): "demo script on staging · labelled prototype"
+- Bar: **80% Foundation** (#D9D0FF): "Substitution-Preference API · unit-safe cart · guardrail service" | **20% Demo layer** (#FF4F81): "demo script on staging · labelled prototype"
 - Weeks: "**Wk 0:** agree scope with the PM; share the pre-mortem" → "**Wk 1–4:** build the Substitution API (Q3)" → "**Wk 5:** demo script on staging + 3 dry runs" → "**Wk 6:** board demo" → "**Wk 7+:** rebuild plan for the prototype, if the board wants it"
 
 **[QUOTE — What I'd tell the PM]** "Let's make sure the board sees something impressive in six weeks, and that it's still standing when real agent traffic arrives. If you still want the original feature after seeing this pre-mortem, we'll build it, with the rebuild plan agreed upfront." *(tag: "Disagree and commit")*
@@ -549,7 +566,7 @@ POST /v2/cart/items
 
 **[TAKEAWAY]** "The goal isn't fewer orders, it's fewer *unintended* ones. The cap applies only to orders placed without approval; order #6 isn't blocked, the agent just asks."
 
-**[BIG NUMBER]** *(huge "5", ~150 px, #003D29)* Caption: "autonomous agent orders / user / month at launch"
+**[BIG NUMBER]** *(huge "5" in the display font, ~150 px, #FF4F81)* Caption: "autonomous agent orders / user / month at launch"
 
 **[GUESSTIMATE — Anchoring ladder from Instacart data]** *(4 ascending steps; each shows the maths in small grey text)*
 1. "**~1.2 / month** — average Instacart customer" *(grey: ~361M orders/yr (Q2'26 × 4) ÷ 26M+ customers (2025) ≈ 14/yr)*
@@ -558,7 +575,7 @@ POST /v2/cart/items
 4. "**5 / month** — weekly shop + one mid-week top-up" *(grey: ~40% of online grocery shoppers order weekly; many top up)*
 - Side note: "5 is ~1.7× a typical active orderer, so most users never hit it. Those who do are heavy shoppers, for whom one tap is trivial."
 
-**[CONFUSION MATRIX — Cost of error: precision vs recall]** *(2×2 grid. Rows = "What the user actually intended"; columns = "What the guardrail did". The FN cell is red, the FP cell amber.)*
+**[CONFUSION MATRIX — Cost of error: precision vs recall]** *(2×2 grid. Rows = "What the user actually intended"; columns = "What the guardrail did". The FN cell gets a #FB923C border, the FP cell a #FBBF24 border.)*
 
 | | **Guardrail: let it through** | **Guardrail: ask first** |
 |---|---|---|
@@ -717,7 +734,7 @@ I'd suggest a joint pre-mortem this week, and three signals we review together e
 
 **[TAKEAWAY]** "We count only orders that land as the user intended. Volume without trust is how agentic programmes get cancelled."
 
-**[DIAGRAM — NSM tree]** *(4 columns: "Initiatives (this deck)" · "Input metric (KPI)" · "Dimension" · "North Star". Initiative boxes teal #A7D8DE, KPI pills light blue #CFE3FA, dimension pills lavender #D9D2F5, North Star a large blue circle with a star icon; curved arrows from each dimension converge on it.)*
+**[DIAGRAM — NSM tree]** *(4 columns: "Initiatives (this deck)" · "Input metric (KPI)" · "Dimension" · "North Star". Initiative boxes = #151024 panels with a #6EA8FF left edge, KPI pills = #1E1733, dimension pills = outlined #B794F6, North Star = a large glowing #4B3F8F → #FF4F81 circle with a star icon (the one place on a content slide where the glow may sit behind content); curved arrows from each dimension converge on it.)*
 
 | Initiatives (this deck) | Input metric (KPI) | Dimension |
 |---|---|---|
