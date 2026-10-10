@@ -11,7 +11,7 @@
 *The earlier light theme (green on white) is in the git history if you ever need it.*
 
 > Restyle the deck in the visual language of this Moody Futurism template, adapted for a consulting-style *reading* deck: 16:9, 1920×1080. It will be exported to PDF and read without a presenter, so content must stay dense, high-contrast and scannable. **The mood lives in the frame; the content stays calm.**
-> **Typography:** **Bricolage Grotesque** (the template's font) for the cover, action titles, takeaway lines, big numbers and the "SO WHAT" sentence — Bold 700 for titles, ExtraBold 800 on the cover, Medium 500 for takeaways. **Inter** for body text, tables and chips (use tabular figures so numbers line up in columns). **JetBrains Mono** for code and field names.
+> **Typography:** the template's bold geometric display font for action titles and big numbers only; Inter for everything else (body, tables, chips). JetBrains Mono for code and field names.
 > **Colour tokens:**
 > background #07040F (near-black) · panel #151024 · raised panel / table header #1E1733 · divider #2E2550 · primary text #F2EEFF · secondary text #B8AED9 · muted text #7D74A0 · title lavender #D9D0FF · **brand pink #FF4F81**, used sparingly: the "SO WHAT" label, one key number or phrase per slide, and the RECOMMENDED tag.
 > **Atmosphere:** one soft purple radial glow (#4B3F8F, ≤ 15% opacity) bleeding in from the top-right corner of content slides, and a faint dot-grid in the same corner. **Never put a glow, gradient or dot-grid behind a table, chart or body text.**
@@ -19,8 +19,8 @@
 > **Fixed chrome on every content slide, top to bottom:**
 > (1) **Nav bar**, 40 px: nine tabs — Summary · Context · Q1 Market · Q2 Demo · Q3 Build · Q4 Contract · Q5 Guardrails · Q6 Risk · Metrics. Active tab = pill in #D9D0FF with #07040F text; inactive tabs #7D74A0, 13 px. Running header "MAKING INSTACART AGENT-READY" at top right, 11 px caps #7D74A0. A 1 px #2E2550 rule under the bar.
 > (2) **Question strip** (question slides only): #151024 bar, bold "THE QUESTION ·" label in #FF4F81, then the question verbatim in 13 px italic #B8AED9, max 2 lines.
-> (3) **Action title**: Bricolage Grotesque Bold, 32 px, #F2EEFF, tight letter-spacing (−1%), max 2 lines.
-> (4) **Takeaway line**: Bricolage Grotesque Medium, 17 px, #D9D0FF, max 2 lines.
+> (3) **Action title**: display font, 32 px, bold, #F2EEFF, max 2 lines.
+> (4) **Takeaway line**: 17 px, medium, #D9D0FF, max 2 lines.
 > (5) **Pillar chips**, top-right, on one row: *outlined* pills (1.5 px border + text in the same colour, transparent fill), 11 px caps — LEGIBLE #6EA8FF · BOUNDED #4ADE80 · REVERSIBLE #FBBF24 · ACCOUNTABLE #B794F6.
 > (6) **"So what" callout**: full-width #1A0F2A box, 4 px #FF4F81 left border, a bold "SO WHAT →" label in #FF4F81, then one sentence at 16 px #F2EEFF.
 > (7) **Footer**: 10 px #7D74A0 source line on the left, "NN / 12" page number on the right.
@@ -87,7 +87,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 **[EYEBROW]** *(top-right, 13 px caps #B8AED9)* "APM Case Study · Shortlist Round · October 2026"
 
-**[TITLE]** *(Bricolage Grotesque ExtraBold, as in the template)* "Making" / "Instacart" *(#D9D0FF)* / "**Agent Ready.**" *(#FF4F81)*
+**[TITLE]** *(display font, as in the template)* "Making" / "Instacart" *(#D9D0FF)* / "**Agent Ready.**" *(#FF4F81)*
 
 **[SUBTITLE]** *(as in the template)* "Designing autonomy that users can trust."
 
@@ -566,7 +566,7 @@ POST /v2/cart/items
 
 **[TAKEAWAY]** "The goal isn't fewer orders, it's fewer *unintended* ones. The cap applies only to orders placed without approval; order #6 isn't blocked, the agent just asks."
 
-**[BIG NUMBER]** *(huge "5" in Bricolage Grotesque ExtraBold, ~150 px, #FF4F81)* Caption: "autonomous agent orders / user / month at launch"
+**[BIG NUMBER]** *(huge "5" in the display font, ~150 px, #FF4F81)* Caption: "autonomous agent orders / user / month at launch"
 
 **[GUESSTIMATE — Anchoring ladder from Instacart data]** *(4 ascending steps; each shows the maths in small grey text)*
 1. "**~1.2 / month** — average Instacart customer" *(grey: ~361M orders/yr (Q2'26 × 4) ÷ 26M+ customers (2025) ≈ 14/yr)*
