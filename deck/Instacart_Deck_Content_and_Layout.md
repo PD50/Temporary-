@@ -20,7 +20,7 @@
 > **Components:** panels are #F6F7F5, 12 px radius, no shadow. Table headers are #003D29 with white 13 px bold text; body cells 12–14 px with 1 px #E5E7EB lines. Heat-map cells: 8–10 #D1FAE5, 5–7 #FEF3C7, 1–4 #FEE2E2. The recommended row or column gets a 2 px #0A8A0A outline and a small "RECOMMENDED" tag. Code blocks use JetBrains Mono 12–13 px on #0F172A with light text. Max two accent colours per slide besides the pillar chips. Prefer tables, matrices and diagrams to bullets; no text box over ~80 words.
 
 ### A2. Per-slide prompt template
-> Using the design system above, build slide [N]. Active nav tab: [TAB]. Pillar chips: [CHIPS]. Layout: [paste the LAYOUT sketch]. Content: [paste the blocks exactly]. Keep all copy verbatim; don't add or rewrite text. Render tables as real tables, not images.
+> Using the design system above, build slide [N]. Active nav tab: [TAB]. Pillar chips: [CHIPS]. Layout: [paste the LAYOUT sketch]. Content: [paste the blocks exactly]. Keep all copy verbatim; don't add or rewrite text. Render tables as real tables, not images. The double quotation marks around copy in this spec only mark where the copy starts and ends: don't render them, except inside [QUOTE] blocks and where a phrase is quoted within a sentence.
 
 Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to tighten their fonts by hand.
 
