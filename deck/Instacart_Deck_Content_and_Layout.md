@@ -10,7 +10,7 @@
 ### A1. Master prompt
 > Design a 16:9 presentation slide at 1920×1080 for a consulting-style *reading* deck. It will be exported to PDF and read without a presenter, so it should be dense but scannable. Use Inter only. Margins 64 px left/right, 48 px top/bottom; a 12-column grid with 24 px gutters.
 > **Fixed chrome on every content slide, top to bottom:**
-> (1) **Nav bar**, 40 px tall, full width, nine text tabs: Summary · Context · Q1 Market · Q2 Demo · Q3 Build · Q4 Contract · Q5 Guardrails · Q6 Risk · Metrics. The active tab is a filled pill in #003D29 with white text; inactive tabs are #6B7280 at 13 px. A 2 px #003D29 rule sits under the bar.
+> (1) **Nav bar**, 40 px tall, full width, nine text tabs: Summary · Context · Q1 Market · Q2 Demo · Q3 Build · Q4 Contract · Q5 Guardrails · Q6 Risk · Metrics. The active tab is a filled pill in #003D29 with white text; inactive tabs are #6B7280 at 13 px. Running header "MAKING INSTACART AGENT-READY" at top right, 11 px caps #6B7280. A 2 px #003D29 rule sits under the bar.
 > (2) **Question strip** (question slides only): a 1-line-high #F3F4F6 bar with a bold "THE QUESTION ·" label followed by the question text verbatim, 13 px italic #374151, max 2 lines.
 > (3) **Action title**: 32 px, bold, #1A1A1A, max 2 lines.
 > (4) **Takeaway line**: 17 px, medium, #0A8A0A, max 2 lines.
