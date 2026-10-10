@@ -1,5 +1,5 @@
 # Instacart Agent-Readiness — Deck Content & Layout Spec (v2)
-*Reading deck: 12 slides + appendix, 16:9 (1920 × 1080). Every word in quotes or inside a block is final slide copy. Text in *(italics)* is a layout instruction, not slide copy.*
+*Reading deck: 12 slides (no appendix), 16:9 (1920 × 1080). Every word in quotes or inside a block is final slide copy. Text in *(italics)* is a layout instruction, not slide copy.*
 
 **What changed from v1:** your per-question structure is built in (Q1–Q6 + NSM). Q4 and Q5 are two slides each; Q3 is one dense slide. Every question slide opens with the brief's own question. Q2 uses a pre-mortem. Q3 gains a "when would checkout win?" what-if exhibit. Q4 uses a fishbone plus 5 Whys. Q5 has a sourced guesstimate and a precision/recall matrix. Q6 adds a situation analysis. The roadmap slide is gone; its "what we're not doing" moved to the exec summary.
 
@@ -388,7 +388,7 @@ Build one slide per prompt. The densest slides are 5, 6, 7, 10 and 11; expect to
 
 **[CALLOUT]** "SO WHAT → 'Fix the leak first' is the right rule, and in grocery the leak is substitution: about one replacement per order. This API *is* the 'boundaries the user has set' in the brief."
 
-**[FOOTER]** "Sources: Instacart × ChatGPT checkout via ACP (Dec 2025); Google AP2 (Sep 2025); CXM World (~300M replacements in 2024 vs ~290M orders). Full schema example in the appendix."
+**[FOOTER]** "Sources: Instacart × ChatGPT checkout via ACP (Dec 2025); Google AP2 (Sep 2025); CXM World (~300M replacements in 2024 vs ~290M orders)."
 
 ---
 
@@ -757,8 +757,7 @@ I'd suggest a joint pre-mortem this week, and three signals we review together e
 
 ---
 
-### APPENDIX — Sources & Calculations
-*Small "Appendix" tag instead of the nav bar. Two columns, 12 px.*
+### APPENDIX — Sources & Calculations *(NOT USED in the submitted deck; kept as your own back-up for interview questions)*
 
 **Left column — Calculations**
 - "**Average order value:** $10.351B GTV ÷ 90.3M orders (Q2 2026) = **~$115**"
@@ -810,7 +809,8 @@ PUT /v1/users/{id}/substitution-preferences
 
 ## Part D — Pre-submission checklist
 - [ ] Read only the 12 titles: does each one answer its question in the brief's own words?
-- [ ] Every number appears in the appendix calculations or has a footer source.
+- [ ] Every number on a slide has a footer source or shows its maths on the slide.
+- [ ] No slide mentions an appendix.
 - [ ] Estimates are marked "~", "est." or "dated".
 - [ ] Q2, Q3 and Q5 each state a clear choice *and* a flip or rollback condition.
 - [ ] Consistency: checkout stays human-confirmed early (Q3 what-if table, Q5 tiers, exec summary strip).
