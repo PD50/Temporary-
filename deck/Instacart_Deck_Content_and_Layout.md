@@ -650,7 +650,7 @@ POST /v2/cart/items
 │ [Q]                                                            │
 │ [TITLE]                                               [chips] │
 │ [TAKEAWAY]                                                    │
-│ ┌ SITUATION ANALYSIS (40%) ─────┐ ┌ STATEMENT TO THE POC (60%) ┐│
+│ ┌ SITUATION ANALYSIS (40%) ─────┐ ┌ WHAT I'D SAY TO OUR INSTACART CONTACT (60%) ┐│
 │ │ know | don't know | means     │ │ large quote panel          ││
 │ └───────────────────────────────┘ └────────────────────────────┘│
 │ ┌ TABLE: risk register, tied to Q1–Q5 (full width) ──────────┐ │
@@ -670,7 +670,7 @@ POST /v2/cart/items
 - "**What we don't know:** their scope, their team, what actually broke. *So we won't speculate.*"
 - "**What it means for us:** their likely failure points are our known risks, and Q3–Q5 were chosen to address them first. Gartner expects > 40% of agentic AI projects to be cancelled by end-2027, citing cost, unclear value and weak risk controls."
 
-**[STATEMENT TO THE POC — verbatim]** *(large quote panel, 15 px)*
+**[WHAT I'D SAY TO OUR INSTACART CONTACT — verbatim]** *(large quote panel, 15 px)*
 "It's a fair question, and I won't pretend there's no risk. We have real uncertainty too: how fast agent traffic actually arrives, and how differently each agent platform behaves.
 They're a grocery app, so their problems are likely ours: quantities, substitutions, orders users didn't mean. That's exactly why we built those defences first.
 Projects like theirs usually stall for predictable reasons: nothing shipped for months, demos that over-promise, no guardrails so the first incident goes public, and unclear ownership so people blame each other. Here's how we're set up against each one, and where I think we're still exposed.
